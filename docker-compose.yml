@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  master-app:
+    build: .
+    container_name: master-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=master
+
+  slave-app:
+    build: .
+    container_name: slave-app
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=slave
