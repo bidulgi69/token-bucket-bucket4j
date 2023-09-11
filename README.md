@@ -9,7 +9,7 @@ Implementation of token bucket algorithm in a distributed system using [Bucket4j
 ## Run
 ```
 # build jars and image
-make build
+make setup
 
 
 # run applications
