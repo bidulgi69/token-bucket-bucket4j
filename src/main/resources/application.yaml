@@ -1,14 +1,24 @@
 spring:
   config:
     activate:
-      on-profile: local
-  data:
-    redis:
-      host: localhost
-      port: 6379
+      on-profile: default
 
 server:
   shutdown: graceful
+
+# If there are two configurations which have a same key,
+# The configuration of a bucket is determined by the first bucket defined(created).
+bucket:
+  master:
+    capacity: 3
+    initialTokens: 3
+    refillTokens: 3
+    refillDurationSeconds: 60
+  slave:
+    capacity: 5
+    initialTokens: 5
+    refillTokens: 3
+    refillDurationSeconds: 30
 
 ---
 spring:
